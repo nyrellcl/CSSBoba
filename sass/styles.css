@@ -1,0 +1,318 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.canvas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.canvas .background {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 95vmin;
+  height: 95vmin;
+  background-color: #d9d7f1;
+  border-radius: 50%;
+}
+
+.canvas .background .heart {
+  position: absolute;
+  width: 100px;
+  height: 60px;
+  top: 5vmin;
+  left: 53vmin;
+  -webkit-animation-name: beat;
+          animation-name: beat;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  z-index: 3;
+}
+
+.canvas .background .heart::before, .canvas .background .heart::after {
+  content: '';
+  position: absolute;
+  left: 50px;
+  top: 0;
+  width: 50px;
+  height: 80px;
+  background: #eca5a5;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  -webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%;
+  border-radius: 50px 50px 0 0;
+}
+
+.canvas .background .heart::after {
+  left: 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transform-origin: 100% 100%;
+          transform-origin: 100% 100%;
+}
+
+.canvas .background .straw {
+  position: absolute;
+  background-color: #262727;
+  width: 5vmin;
+  height: 23vmin;
+  -webkit-transform: rotate(5deg);
+          transform: rotate(5deg);
+  top: 4.5vmin;
+  z-index: 3;
+}
+
+.canvas .background .straw::before {
+  content: '';
+  position: absolute;
+  border-radius: 45%;
+  width: 2vmin;
+  height: 5vmin;
+  background-color: #262727;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  top: -2.5vmin;
+  left: 1.5vmin;
+}
+
+.canvas .background .straw::after {
+  content: '';
+  position: absolute;
+  background-color: #262727;
+  bottom: 0;
+  width: 3vmin;
+  height: 1vmin;
+  border-radius: 45%;
+  -webkit-transform: rotate(-20deg);
+          transform: rotate(-20deg);
+  right: 3vmin;
+  -webkit-box-shadow: 2vmin 1vmin 0 #262727;
+          box-shadow: 2vmin 1vmin 0 #262727;
+}
+
+.canvas .background .top {
+  position: absolute;
+  background-color: #fffdde;
+  width: 50vmin;
+  height: 5vmin;
+  border-radius: 100% / 50%;
+  top: 25vmin;
+  -webkit-box-shadow: inset 0vmin -1vmin 1vmin -1vmin #a0a095;
+          box-shadow: inset 0vmin -1vmin 1vmin -1vmin #a0a095;
+  z-index: 2;
+}
+
+.canvas .background .cup {
+  position: absolute;
+  width: 50vmin;
+  height: 55vmin;
+  border-radius: 60%/20%;
+  background-color: #fff7f0;
+  top: 30vmin;
+  z-index: 2;
+  /*.drink{
+                position: absolute;
+                width: 50vmin;
+                height: 55vmin;
+                border-radius: 60%/20%;
+                background-color: lightblue;
+                top: 4vmin;
+                bottom: 15vmin;
+                &::before{
+                    content: '';
+                    position: absolute;
+                    top: -5vmin;
+                    bottom: -1.05vmin;
+                    right: -3%;
+                    left: -3%;
+                    background-color: lightblue;
+                    border-radius: 12.5%/55%;
+                    
+                }
+            }*/
+}
+
+.canvas .background .cup::before {
+  content: '';
+  position: absolute;
+  top: -0.9vmin;
+  bottom: 10%;
+  right: -5%;
+  left: -5%;
+  background-color: #fff7f0;
+  border-radius: 10%/55%;
+  -webkit-box-shadow: inset -2vmin 2vmin 1vmin -2vmin #a0a095;
+          box-shadow: inset -2vmin 2vmin 1vmin -2vmin #a0a095;
+}
+
+.canvas .background .cup .eyes {
+  position: absolute;
+  width: 7vmin;
+  height: 8vmin;
+  background: #000;
+  border-radius: 50%;
+  top: 25vmin;
+  left: 15vmin;
+  -webkit-box-shadow: 13vmin 0 #262727;
+          box-shadow: 13vmin 0 #262727;
+}
+
+.canvas .background .cup .eyes::before {
+  content: '';
+  position: absolute;
+  width: 10vmin;
+  height: 10vmin;
+  border-radius: 50%;
+  -webkit-box-shadow: 0vmin 3vmin 0 0 #fff7f0;
+          box-shadow: 0vmin 3vmin 0 0 #fff7f0;
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+  top: 8vmin;
+  right: -1.5vmin;
+}
+
+.canvas .background .cup .eyes::after {
+  content: '';
+  position: absolute;
+  width: 10vmin;
+  height: 10vmin;
+  border-radius: 50%;
+  -webkit-box-shadow: 0vmin 3vmin 0 0 #fff7f0;
+          box-shadow: 0vmin 3vmin 0 0 #fff7f0;
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+  top: 8vmin;
+  left: 11.5vmin;
+}
+
+.canvas .background .cup .eyes .pupil {
+  position: absolute;
+  background: #fff;
+  width: 1.5vmin;
+  height: 2.5vmin;
+  border-radius: 50%;
+  -webkit-transform: rotate(18deg);
+          transform: rotate(18deg);
+  left: 1vmin;
+  z-index: 1;
+}
+
+.canvas .background .cup .eyes .pupil::before {
+  content: '';
+  position: absolute;
+  background: #fff;
+  width: 1.5vmin;
+  height: 2.5vmin;
+  border-radius: 50%;
+  -webkit-transform: rotate(18deg);
+          transform: rotate(18deg);
+  left: 12.5vmin;
+  top: -4vmin;
+  z-index: 1;
+}
+
+.canvas .background .cup .cheeks {
+  position: absolute;
+  width: 5vmin;
+  height: 5vmin;
+  border-radius: 50%;
+  -webkit-box-shadow: 0vmin 0.5vmin 0 0 #262727;
+          box-shadow: 0vmin 0.5vmin 0 0 #262727;
+  top: 33.5vmin;
+  left: 31.5vmin;
+  -webkit-transform: rotate(49deg);
+          transform: rotate(49deg);
+}
+
+.canvas .background .cup .cheeks::before {
+  content: '';
+  position: absolute;
+  width: 5vmin;
+  height: 5vmin;
+  border-radius: 50%;
+  -webkit-box-shadow: 0vmin 0.5vmin 0 0 #262727;
+          box-shadow: 0vmin 0.5vmin 0 0 #262727;
+  top: 13.5vmin;
+  bottom: 3vmin;
+  left: -9.95vmin;
+  -webkit-transform: rotate(235deg);
+          transform: rotate(235deg);
+}
+
+.canvas .background .cup .smile {
+  position: absolute;
+  position: absolute;
+  width: 11.5vmin;
+  height: 5vmin;
+  border-radius: 50%;
+  top: 33.5vmin;
+  left: 20vmin;
+  -webkit-box-shadow: 0vmin 0.5vmin 0 0 #262727;
+          box-shadow: 0vmin 0.5vmin 0 0 #262727;
+}
+
+.canvas .background .cup .boba {
+  position: absolute;
+  width: 5vmin;
+  height: 5vmin;
+  border-radius: 50%;
+  background-color: #262727;
+  top: 40vmin;
+  -webkit-box-shadow: 0 0 0vmin 0 #262727, 6vmin 7vmin 0vmin #262727, 13vmin 3vmin #262727, 40vmin -2vmin, 30vmin 1vmin, 45vmin 2vmin, 22vmin 8vmin, 33vmin 7vmin, 6vmin -3vmin;
+          box-shadow: 0 0 0vmin 0 #262727, 6vmin 7vmin 0vmin #262727, 13vmin 3vmin #262727, 40vmin -2vmin, 30vmin 1vmin, 45vmin 2vmin, 22vmin 8vmin, 33vmin 7vmin, 6vmin -3vmin;
+}
+
+@-webkit-keyframes beat {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes beat {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+/*# sourceMappingURL=styles.css.map */
